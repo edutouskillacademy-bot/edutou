@@ -1,11 +1,11 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
+import Image from 'next/image';
 import { X, ChevronDown, Menu } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styled from 'styled-components';
-
-// Import your logo (adjust the path as needed)
-import logo from './download.png';
 
 interface LogoContainerProps {
   expanded: boolean;
@@ -19,9 +19,13 @@ interface LogoHeaderProps {
 const Navbar = () => {
   const [expanded, setExpanded] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -113,12 +117,12 @@ const Navbar = () => {
             $isMobile={isMobile}
           >
             {/* Clickable Logo Header */}
-            <LogoHeader 
+            <LogoHeader
               onClick={toggleExpanded}
               expanded={expanded}
             >
               {/* Logo image instead of text */}
-              <LogoImage src={logo} alt="Edutou Logo" />
+              <LogoImage src="/download.png" alt="Edutou Logo" />
               <motion.div
                 animate={{ rotate: expanded ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
@@ -149,12 +153,12 @@ const Navbar = () => {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.3 }}
                     >
-                      <NavLink 
-                        to={item.path}
+                      <NavLinkStyled
+                        href={item.path}
                         onClick={() => setExpanded(false)}
                       >
                         {item.name}
-                      </NavLink>
+                      </NavLinkStyled>
                     </NavItem>
                   ))}
                 </NavContent>
@@ -164,7 +168,7 @@ const Navbar = () => {
         ) : (
           // Mobile Logo - Simple logo without container
           <MobileLogoContainer>
-            <LogoImage src={logo} alt="Edutou Logo" />
+            <LogoImage src="/download.png" alt="Edutou Logo" />
           </MobileLogoContainer>
         )}
 
@@ -178,12 +182,12 @@ const Navbar = () => {
           >
             {navItems.map((item) => (
               <MobileNavItem key={item.name}>
-                <MobileNavLink 
-                  to={item.path}
+                <MobileNavLinkStyled
+                  href={item.path}
                   onClick={toggleMobileMenu}
                 >
                   {item.name}
-                </MobileNavLink>
+                </MobileNavLinkStyled>
               </MobileNavItem>
             ))}
           </MobileMenu>
@@ -260,7 +264,7 @@ const NavItem = styled(motion.div)`
   margin: 5px 0;
 `;
 
-const NavLink = styled(Link)`
+const NavLinkStyled = styled(Link)`
   display: block;
   padding: 8px 10px;
   color: black;
@@ -304,7 +308,7 @@ const MobileNavItem = styled.div`
   border-bottom: 1px solid #eee;
 `;
 
-const MobileNavLink = styled(Link)`
+const MobileNavLinkStyled = styled(Link)`
   color: black;
   text-decoration: none;
   font-size: 14px;

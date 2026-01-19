@@ -1,5 +1,7 @@
+'use client';
+
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Check } from 'lucide-react';
 
 const PaymentSuccess = () => {
@@ -13,7 +15,7 @@ const PaymentSuccess = () => {
         Thank you for enrolling. You will receive course details via email shortly.
       </p>
       <Link
-        to="/"
+        href="/"
         className="inline-block bg-[var(--color-brand)] hover:bg-[var(--color-brand-dark)] text-white py-2 px-6 rounded-md border border-black"
       >
         Back to Home

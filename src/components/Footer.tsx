@@ -1,3 +1,5 @@
+'use client';
+
 import { useState, useEffect, useRef } from 'react';
 import {
   Instagram,
@@ -5,8 +7,7 @@ import {
   MessageSquareText,
   Linkedin,
 } from 'lucide-react';
-import downloadLogo from './download.png'; 
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 export default function RejouiceFooter() {
   const [isIntersecting, setIsIntersecting] = useState(false);
@@ -70,9 +71,9 @@ export default function RejouiceFooter() {
               </div>
             </div>
 
-            {/* ✅ Updated with your logo */}
+            {/* Logo */}
             <div className={`flex items-center gap-3 mb-4 ${fadeInUpClass(200)}`}>
-              <img src={downloadLogo} alt="Edutou Logo" className="w-10 h-10" />
+              <img src="/download.png" alt="Edutou Logo" className="w-10 h-10" />
               <span className="text-lg font-semibold">Edutou</span>
             </div>
 
@@ -85,18 +86,18 @@ export default function RejouiceFooter() {
             <div className="grid grid-cols-2 gap-8">
               <div>
                 <div className="text-right">
-                  <Link to="/" className="block hover:text-gray-600 transition-colors text-sm mb-2">Home</Link>
-        
-                  <Link to="/about" className="block hover:text-gray-600 transition-colors text-sm mb-2">About</Link>
-                  <Link to="/PROJECTS" className="block hover:text-gray-600 transition-colors text-sm mb-2">Services</Link>
-                  <Link to="/contact" className="block hover:text-gray-600 transition-colors text-sm">Contact</Link>
+                  <Link href="/" className="block hover:text-gray-600 transition-colors text-sm mb-2">Home</Link>
+
+                  <Link href="/about" className="block hover:text-gray-600 transition-colors text-sm mb-2">About</Link>
+                  <Link href="/PROJECTS" className="block hover:text-gray-600 transition-colors text-sm mb-2">Services</Link>
+                  <Link href="/contact" className="block hover:text-gray-600 transition-colors text-sm">Contact</Link>
                 </div>
               </div>
 
               <div className="text-right">
-                <Link to="/terms" className="block hover:text-gray-600 transition-colors text-sm mb-2">Terms & Conditions</Link>
-                <Link to="/Privacy" className="block hover:text-gray-600 transition-colors text-sm mb-2">Privacy Policy</Link>
-                <Link to="/Refund" className="block hover:text-gray-600 transition-colors text-sm mb-2">Refund Policy</Link>
+                <Link href="/terms" className="block hover:text-gray-600 transition-colors text-sm mb-2">Terms & Conditions</Link>
+                <Link href="/privacy" className="block hover:text-gray-600 transition-colors text-sm mb-2">Privacy Policy</Link>
+                <Link href="/refund" className="block hover:text-gray-600 transition-colors text-sm mb-2">Refund Policy</Link>
               </div>
             </div>
           </div>

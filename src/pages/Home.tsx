@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useRef, useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { ArrowRight, Zap, Layers, RefreshCw } from 'lucide-react';
 import {
   motion,
@@ -706,7 +706,7 @@ const Home = () => {
                       transition={{ type: 'spring', stiffness: 400, damping: 10 }}
                       className="mb-6 md:mb-8"
                   >
-                      <Link to="/currentcourse" className="flex items-center">
+                      <Link href="/currentcourse" className="flex items-center">
                           Enroll Today
                           <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
                       </Link>
@@ -840,7 +840,7 @@ const Home = () => {
             whileTap={{ scale: 0.95 }}
             transition={{ type: 'spring', stiffness: 400, damping: 10 }}
           >
-            <Link to="/enroll" className="flex items-center">
+            <Link href="/enroll" className="flex items-center">
               Get Started Learning
               <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
             </Link>
