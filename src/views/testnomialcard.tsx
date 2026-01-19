@@ -1,6 +1,13 @@
 import { Quote } from "lucide-react";
 
-const testimonials = [
+interface TestimonialProps {
+  name: string;
+  role: string;
+  review: string;
+  avatar: string;
+}
+
+const testimonials: TestimonialProps[] = [
   {
     name: "Sarah Johnson",
     role: "CS Student",
@@ -39,7 +46,7 @@ const testimonials = [
   },
 ];
 
-const TestimonialCard = ({ name, role, review, avatar }) => {
+const TestimonialCard = ({ name, role, review, avatar }: TestimonialProps) => {
   return (
     <div className="flex-shrink-0 w-64 sm:w-72 md:w-80 mx-2 sm:mx-3 md:mx-4 bg-white rounded-xl p-4 sm:p-5 shadow-md border border-gray-100 hover:shadow-lg transition-shadow duration-300">
       <div className="flex items-center mb-3">
