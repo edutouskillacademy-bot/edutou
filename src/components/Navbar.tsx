@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { X, ChevronDown, Menu } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import styled from 'styled-components';
@@ -38,7 +37,7 @@ const Navbar = () => {
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         // Scrolling down and past 100px - hide navbar
         setIsVisible(false);
@@ -46,13 +45,13 @@ const Navbar = () => {
         // Scrolling up or at top - show navbar
         setIsVisible(true);
       }
-      
+
       setLastScrollY(currentScrollY);
     };
 
     window.addEventListener('resize', handleResize);
     window.addEventListener('scroll', handleScroll, { passive: true });
-    
+
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('scroll', handleScroll);
@@ -63,8 +62,8 @@ const Navbar = () => {
     { name: 'Home', path: '/' },
     { name: 'About Us', path: '/about' },
     { name: 'All Courses', path: '/PROJECTS' },
-    { name: ' Verify Certification', path: '/certifications' },
-    { name: 'contact', path: '/Contact' }
+    { name: 'Verify Certification', path: '/certifications' },
+    { name: 'Contact', path: '/contact' }
   ];
 
   const toggleMobileMenu = () => {
@@ -101,15 +100,15 @@ const Navbar = () => {
           <LogoContainer
             initial={false}
             animate={{
-              width: expanded ? 220 : 100,
-              height: expanded ? 'auto' : 40,
+              width: expanded ? 240 : 160,
+              height: expanded ? 'auto' : 50,
               borderRadius: expanded ? 12 : 8,
               marginLeft: '2rem',
               marginTop: '0.5rem',
             }}
-            transition={{ 
-              type: 'spring', 
-              stiffness: 300, 
+            transition={{
+              type: 'spring',
+              stiffness: 300,
               damping: 25,
               bounce: 0.2
             }}
@@ -121,8 +120,11 @@ const Navbar = () => {
               onClick={toggleExpanded}
               expanded={expanded}
             >
-              {/* Logo image instead of text */}
-              <LogoImage src="/download.png" alt="Edutou Logo" />
+              {/* Logo image and text */}
+              <div className="flex items-center gap-3">
+                <LogoImage src="/download.png" alt="Edutou Logo" />
+                <span className="font-bold text-black text-xl">Edutou</span>
+              </div>
               <motion.div
                 animate={{ rotate: expanded ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
@@ -136,10 +138,10 @@ const Navbar = () => {
               {expanded && (
                 <NavContent
                   initial={{ opacity: 0, height: 0 }}
-                  animate={{ 
+                  animate={{
                     opacity: 1,
                     height: 'auto',
-                    transition: { 
+                    transition: {
                       staggerChildren: 0.1,
                       when: "beforeChildren"
                     }
@@ -169,6 +171,7 @@ const Navbar = () => {
           // Mobile Logo - Simple logo without container
           <MobileLogoContainer>
             <LogoImage src="/download.png" alt="Edutou Logo" />
+            <span className="font-bold text-black text-xl ml-2">Edutou</span>
           </MobileLogoContainer>
         )}
 
@@ -248,7 +251,7 @@ const LogoHeader = styled.div<LogoHeaderProps>`
 `;
 
 const LogoImage = styled.img`
-  height: 24px;
+  height: 36px;
   width: auto;
   object-fit: contain;
 `;

@@ -1,6 +1,6 @@
 'use client';
 
-import Currentcourse from '@/pages/currentcourse';
+import Currentcourse from '@/views/currentcourse';
 
 export default function CurrentCoursePage() {
   return <Currentcourse />;

@@ -1,6 +1,6 @@
 'use client';
 
-import PaymentSuccess from '@/pages/PaymentSuccess';
+import PaymentSuccess from '@/views/PaymentSuccess';
 
 export default function PaymentSuccessPage() {
   return <PaymentSuccess />;

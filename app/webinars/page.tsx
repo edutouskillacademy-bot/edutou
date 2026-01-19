@@ -1,6 +1,6 @@
 'use client';
 
-import Webinar from '@/pages/Webinar';
+import Webinar from '@/views/Webinar';
 
 export default function WebinarsPage() {
   return <Webinar />;

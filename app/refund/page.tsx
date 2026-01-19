@@ -1,6 +1,6 @@
 'use client';
 
-import RefundPolicy from '@/pages/RefundPolicy';
+import RefundPolicy from '@/views/RefundPolicy';
 
 export default function RefundPage() {
   return <RefundPolicy />;

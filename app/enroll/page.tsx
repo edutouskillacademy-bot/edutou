@@ -1,6 +1,6 @@
 'use client';
 
-import Enrollment from '@/pages/Enrollment';
+import Enrollment from '@/views/Enrollment';
 
 export default function EnrollPage() {
   return <Enrollment />;

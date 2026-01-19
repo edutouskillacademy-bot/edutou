@@ -35,3 +35,45 @@
   -webkit-text-stroke: 2px var(--color-brand);
   text-shadow: none;
 }
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(calc(-100% / 2));
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(calc(-100% / 2));
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+/* Gradient underline animation */
+.animate-underline {
+  animation: underlineGrow 1.5s ease forwards;
+}
+
+@keyframes underlineGrow {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+  100% {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+/* Underline on feature title hover */
+.feature-title:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  transition: all 0.3s ease;
+}

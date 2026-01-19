@@ -11,10 +11,10 @@ import {
   useInView,
 } from "framer-motion";
 import styled from 'styled-components';
-import Projects from '../components/services';
-import TestnomialCard from './testnomialcard';
+import Projects from '@/components/services';
+import TestnomialCard from '@/views/testnomialcard';
 
-import Waves from '../components/waves';
+import Waves from '@/components/waves';
 
 // -----------------------------
 // InfiniteMovingSponsors Component
@@ -53,7 +53,7 @@ const InfiniteMovingSponsors = ({
         ref={scrollerRef}
         className="flex gap-8 whitespace-nowrap w-max"
         style={{
-          animation: `scroll-${direction} ${speed === "slow" ? "60s" : speed === "fast" ? "20s" : "40s"} linear infinite`,
+          animation: `scroll-${direction} ${speed === "slow" ? "120s" : speed === "fast" ? "60s" : "90s"} linear infinite`,
         }}
       >
         {items.map((item, idx) => (
@@ -65,28 +65,6 @@ const InfiniteMovingSponsors = ({
           </span>
         ))}
       </div>
-      
-      <style>
-        {`
-          @keyframes scroll-right {
-            0% {
-              transform: translateX(0%);
-            }
-            100% {
-              transform: translateX(calc(-100% / 2));
-            }
-          }
-          
-          @keyframes scroll-left {
-            0% {
-              transform: translateX(calc(-100% / 2));
-            }
-            100% {
-              transform: translateX(0%);
-            }
-          }
-        `}
-      </style>
     </div>
   );
 };
@@ -100,7 +78,7 @@ const MovingTextMarquee = () => {
       <div
         className="whitespace-nowrap w-max"
         style={{
-          animation: "scroll-right 20s linear infinite",
+          animation: "scroll-right 45s linear infinite",
         }}
       >
         {[...Array(8)].map((_, i) => (
@@ -416,30 +394,6 @@ function EdutouAboutUs() {
         </div>
       </section>
 
-      <style>{`
-        /* Gradient underline animation */
-        .animate-underline {
-          animation: underlineGrow 1.5s ease forwards;
-        }
-        @keyframes underlineGrow {
-          0% {
-            width: 0%;
-            opacity: 0;
-          }
-          100% {
-            width: 100%;
-            opacity: 1;
-          }
-        }
-
-        /* Underline on feature title hover */
-        h3:hover {
-          text-decoration: underline;
-          text-decoration-thickness: 2px;
-          text-underline-offset: 4px;
-          transition: all 0.3s ease;
-        }
-      `}</style>
     </div>
   );
 }
@@ -647,28 +601,6 @@ const Home = () => {
 
   return (
     <div className="bg-white text-gray-900">
-      <style>
-        {`
-          @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
-          
-          .education-text {
-            color: white;
-            -webkit-text-stroke: 2px orange;
-            text-shadow: none;
-          }
-
-          @keyframes scroll-right {
-            0% {
-              transform: translateX(0%);
-            }
-            100% {
-              transform: translateX(calc(-100% / 2));
-            }
-          }
-        `}
-      </style>
-
       {/* Moving text marquee */}
       <MovingTextMarquee />
 
